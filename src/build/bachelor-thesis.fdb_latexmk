@@ -1,0 +1,17 @@
+# Fdb version 3
+["xdvipdfmx"] 0 "build/bachelor-thesis.xdv" "build/bachelor-thesis.pdf" "build/bachelor-thesis" 0
+  "build/bachelor-thesis.xdv" 0 -1 0 "xelatex"
+  (generated)
+  "build/bachelor-thesis.pdf"
+["xelatex"] 1771181841 "bachelor-thesis.tex" "build/bachelor-thesis.xdv" "bachelor-thesis" 1771181841
+  "/etc/texmf/web2c/texmf.cnf" 1740138048 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
+  "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1770896407 5132837 e7894000781466103a3b320c44eb2395 ""
+  "bachelor-thesis.tex" 1771181624 13799 e7f084715c72a7836e199c9cf3d28551 ""
+  "build/bachelor-thesis.aux" 1771181782 32 3985256e7290058c681f74d7a3565a19 ""
+  "build/pma-bthesis.cls" 0 -1 0 ""
+  "pma-bthesis.cls" 0 -1 0 ""
+  (generated)
+  "build/bachelor-thesis.log"
+  "build/bachelor-thesis.xdv"
