@@ -226,19 +226,19 @@
             \endfoot%
 }{\end{longtable}\endgroup}
 
-\newenvironment{calenderplan}[1][|C{0.7cm}|L{9.3cm}|C{4cm}|c|]{%
+\newenvironment{calenderplan}[1][|C{0.7cm}|L{8.3cm}|C{5cm}|c|]{%
     \begingroup\centering
         Календарний план
         \begin{longtable}{#1}
             \hline № з/п &
-            {\centering Назва етапу виконання\par дипломної роботи\par} &
-            Термін виконання етапу роботи &
+            {\centering Назва етапів виконання\par магістерської дисертації\par} &
+            {\centering Термін виконання \par етапів магістерської \par дисертації} &
             {\centering Примітка}\\\hline
             \endfirsthead
             \kill
             \hline № з/п &
-            {\centering Назва етапу виконання\par дипломної роботи\par} &
-            Термін виконання етапу роботи &
+            {\centering Назва етапу виконання\par  магістерської дисертації\par} &
+            {\centering Термін виконання \par етапів магістерської \par дисертації} &
             {\centering Примітка}\\\hline
             \endhead
             \hline
