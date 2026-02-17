@@ -102,7 +102,7 @@
                 \vfill
                 Керівник:
 
-                \cmdpma@Title@supervisorTitles
+                \cmdpma@Title@supervisorTitles,
 
                 \cmdpma@Title@supervisor\hfill\signplace\hspace{2cm}
 
@@ -118,14 +118,14 @@
                 \vfill
                 Консультант з нормоконтролю:
 
-                \cmdpma@Title@normConsultantTitles
+                \cmdpma@Title@normConsultantTitles,
 
                 \cmdpma@Title@normConsultant\hfill\signplace\hspace{2cm}
 
                 \vfill
                 Рецензент:
 
-                \cmdpma@Title@reviewerTitles
+                \cmdpma@Title@reviewerTitles,
 
                 \cmdpma@Title@reviewer\hfill\signplace\hspace{2cm}
 
@@ -154,7 +154,7 @@
         \textbf{Кафедра прикладної математики}
 
         \begingroup\raggedright
-            Рівень вищої освіти --- перший (бакалаврський)
+            Рівень вищої освіти --- другий (магістерський)
 
             Спеціальність --- \cmdpma@Title@specialty{}
 
@@ -173,7 +173,7 @@
         \vspace{0.5em}
         \textbf{\MakeUppercase{Завдання}}
 
-        \textbf{на дипломну роботу \student@dat}
+        \textbf{на магістерську дисертацію \student@dat}
 
         #1
 
