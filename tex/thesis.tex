@@ -87,6 +87,8 @@
 \end{assignment}
 
 % «Анотація» повинна стисло відображати загальну характеристику та основний зміст дипломної роботи. Обсяг «Анотації» повинен становити не менше за 650 знаків (із пробілами).
+\pagestyle{empty}
+
 \annotation{Реферат}
 % «Анотацію» потрібно виконувати згідно з такою структурою:
 % - відомості про обсяг дипломної роботи (БЕЗ додатків), кількість рисунків, таблиць, додатків і бібліографічних найменувань за «Переліком посилань»
@@ -114,7 +116,51 @@
 Дослідження спрямоване на пошук наукових прогалин щодо практичного застосування таких технік та їх теоретичне і емпіричне заповнення. 
 Окрему увагу приділено аналізу компромісів, які виникають під час використання таких методів, а саме між точністю, швидкістю та обсягом використання пам'яті.
 
-\textbf{Об’єктом дослідження} є 
+\textbf{Об’єктом дослідження} є є процес стиснення параметрів та алгоритмічної перебудови архітектури моделей глибинного навчання 
+для забезпечення їхнього тренування та функціонування в умовах обмежених апаратних ресурсів.
+
+\textbf{Предметом дослідження} є алгоритми квантування у процесі навчання та методи апроксимації градієнтів для перетворення 
+параметрів нейронних мереж у цілочисельні формати низької розрядності.
+
+\textbf{Методи дослідження}
+
+Теоретичну базу складають методи математичної апроксимації та статистичного аналізу розподілу ваг для формування низькорозрядних представлень параметрів нейронних мереж. 
+Метож стиснення реалізується через алгоритми квантування у процесі навчання (QAT), що передбачають впровадження імітаційних шарів дискретизації для корекції градієнтів під час тренування. 
+У результаті задача зводиться до пошуку оптимальних значень масштабних коефіцієнтів та зміщень, що мінімізують похибку дискретизації при переході до цілочисельних форматів із низькою розрядністю.
+
+\textbf{Наукова новизна отриманих результатів} полягає у наступному:
+    \begin{itemize}[label=--, leftmargin=1.25cm, labelsep=1em]
+            \item уперше запропоновано комплексну стратегію екстремального стиснення архітектури MobileNetV3-small до рівня INT4, 
+            яка поєднує методи апроксимації градієнтів для недиференційовних функцій квантування та 
+            адаптивне налаштування параметрів у середовищі Brevitas.
+            \item удосконалено підхід до стабілізації процесу навчання із квантуванням (QAT) для складних структурних блоків (зокрема Squeeze-and-Excitation та Hard-Swish активацій), 
+            що дало змогу мінімізувати деградацію точності при критичному обмеженні розрядності ваг.
+            \item дослідження компромісів (trade-offs) між силою стиснення та стійкістю моделей, що дозволило сформувати 
+            методичні рекомендації щодо вибору оптимальних конфігурацій квантування для вбудованих систем із суворими 
+            обмеженнями Flash та RAM пам’яті.
+    \end{itemize}
+
+\textbf{Практичне значення одержаних результатів}
+
+Практичне значення одержаних результатів полягає у створенні готового до впровадження технологічного стеку для розгортання моделей EdgeML на мікроконтролерах із лімітом пам'яті до 2 МБ. 
+Розроблені методи стиснення до рівня INT4 дозволяють забезпечити швидкість інференсу до 200 мс на пристроях класу STM32, зберігаючи високу точність класифікації. 
+Сформовані практичні рекомендації, які спрощують перехід від теоретичних досліджень до реальних енергоефективних застосунків у межах парадигми Responsible AI.
+
+\textbf{Апробація результатів дисертації}
+
+Основні результати роботи були представлені на наукових семінарах та виступах у межах дослідницької програми «Responsible AI for Ukraine», що проводилися спільно з Center for Responsible AI 
+при NYU Tandon School of Engineering та Факультетом прикладних наук УКУ.
+
+\textbf{Публікації}
+
+Perederei B., Qureshi F. Single Hyperspectral Image Super-Resolution Utilizing
+          Implicit Neural Representations [Text] // Proceedings of the 14th International Conference 
+          on Pattern Recognition Applications and Methods - Volume 1: ICPRAM / INSTICC. ––
+          [S. l.] : SciTePress. –– 2025. –– P. 628–635.
+
+\textbf{Ключові слова:} глибинне навчання, EdgeML, методи стиснення моделей, квантування, Quatization Aware Training,
+периферійні пристрої, низька розрядність ваг, обмежені обчислювальні ресурси. 
+
 
 % - мета роботи
 % - методи, розглянуті в роботі, критерії, за якими здійснювався вибір методу(-ів) для роботи, метод(-и), вибраний(-і) для використання в роботі
@@ -125,6 +171,85 @@
 \annotation{Annotation}
 % «Abstract» (анотація англійською мовою) повинна бути перекладом анотації українською мовою. Обсяг «Abstract» повинен становити не менше за 650 знаків (із пробілами).
 This thesis is submitted on \totpages{page}{pages}{pages}, it has \totapp{appendix}{appendices}{appendices} and \totcit{reference}{references}{references}. There are \totfig{figure}{figures}{figures} and \tottab{table}{tables}{tables} in this document.
+
+\textbf{Relevance of the topic}
+
+The relevance of the topic is driven by the rapid development of deep learning and the critical need to optimize 
+models for real-world applications. The primary challenge is model scalability, as modern architectures become too 
+cumbersome for mass deployment. Due to the acute shortage of computational resources for the inference of 
+Large Language Models (LLMs), there is a high demand for methods that minimize computational costs and memory 
+usage while preserving model functionality. Furthermore, such methods enable the execution of neural networks on 
+edge devices, providing solutions for cases where data privacy, low latency, and autonomy are decisive factors.
+
+\textbf{Connection of the work with scientific programs, plans, themes}
+
+The Master's thesis research was conducted in accordance with the scientific research plan of the Department of 
+Applied Mathematics at the National Technical University of Ukraine "Igor Sikorsky Kyiv Polytechnic Institute", 
+and within the "Responsible AI for Ukraine Research Program" (Faculty of Applied Sciences at UCU, in collaboration 
+with the Center for Responsible AI at NYU Tandon School of Engineering).
+
+\textbf{Purpose and tasks of the research}
+
+The purpose of the work is to develop and investigate methods for effective neural network compression for 
+training and deployment in resource-constrained environments. The main task is a critical assessment of the 
+readiness of existing methods for use in real-world technical problems. The research aims to identify scientific 
+gaps regarding the practical application of such techniques and to fill them theoretically and empirically. 
+Particular attention is paid to the analysis of trade-offs arising from the use of such methods, specifically between 
+accuracy, speed, and memory footprint.
+
+\textbf{The object of research} is the process of parameter compression and algorithmic restructuring of deep learning
+model architectures to ensure their training and functioning under strict hardware constraints.
+
+\textbf{The subject of research} is quantization-aware training algorithms and gradient approximation methods 
+for converting neural network parameters into low-precision integer formats.
+
+\textbf{Research methods}
+
+The theoretical framework is based on mathematical approximation methods and statistical analysis of weight 
+distribution to form low-precision representations of neural network parameters. 
+The compression method is implemented via quantization-aware training (QAT) algorithms, which involve the 
+introduction of fake quantization layers to correct gradients during training. Consequently, the problem is reduced 
+to finding optimal scale factors and offsets that minimize discretization error when transitioning to low-precision 
+integer formats.
+
+\textbf{Scientific novelty of the obtained results} is as follows:
+\begin{itemize}[label=--, leftmargin=1.25cm, labelsep=1em]
+    \item a comprehensive strategy for extreme compression of the MobileNetV3-small architecture to the 
+    INT4 level was proposed for the first time, combining gradient approximation methods for non-differentiable 
+    quantization functions and adaptive parameter tuning in the Brevitas environment.
+    \item an approach to stabilizing the quantization-aware training process for complex structural blocks 
+    (specifically Squeeze-and-Excitation and Hard-Swish activations) was improved, allowing for minimized accuracy 
+    degradation under critical weight precision constraints.
+    \item investigation of trade-offs between compression strength and model stability was conducted, 
+    resulting in the formation of methodological recommendations for selecting optimal quantization configurations 
+    for embedded systems with severe Flash and RAM limitations.
+\end{itemize}
+
+\textbf{Practical significance of the obtained results}
+
+The practical significance lies in the creation of a ready-to-implement technology stack for deploying EdgeML 
+models on microcontrollers with a memory limit of up to 2 MB. Developed INT4 compression methods enable an inference 
+speed of up to 200 ms on STM32-class devices while maintaining high classification accuracy. 
+Practical recommendations were formulated to simplify the transition from theoretical research to real-world 
+energy-efficient applications within the Responsible AI paradigm.
+
+\textbf{Approbation of the thesis results}
+
+The main results of the work were presented at scientific seminars and presentations within the 
+"Responsible AI for Ukraine" research program, conducted jointly with the Center for Responsible AI at NYU 
+Tandon School of Engineering and the Faculty of Applied Sciences at UCU.
+
+\textbf{Publications}
+
+Perederei B., Qureshi F. Single Hyperspectral Image Super-Resolution Utilizing Implicit Neural Representations 
+[Text] // Proceedings of the 14th International Conference on Pattern Recognition Applications and Methods - 
+Volume 1: ICPRAM / INSTICC. –– [S. l.] : SciTePress. –– 2025. –– P. 628–635.
+
+\textbf{Keywords:} deep learning, EdgeML, model compression methods, quantization, 
+Quantization Aware Training, edge devices, low-precision weights, constrained computational resources.
+
+\clearpage
+\pagestyle{plain}
 
 \tableofcontents
 
