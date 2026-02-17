@@ -198,8 +198,8 @@
 }{%
     \end{list}
     \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}l@{}}
-        \Student@nom & \signplace{}~\assignment@sign@stud\\shutdo
-        Керівник роботи & \signplace{}~\assignment@sign@cur
+        \Student@nom & \signplace{}\hspace{1.25cm}\assignment@sign@stud\\
+        Науковий керівник дисертації & \signplace{}\hspace{1.25cm}\assignment@sign@cur
     \end{tabular*}
     \setlength{\parindent}{1.25cm}
     \clearpage
