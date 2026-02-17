@@ -142,6 +142,8 @@
 }
 % завдання на дипломну роботу
 \newenvironment{assignment}[3]{%
+    \clearpage
+    \pagestyle{empty}
     \setlength{\parindent}{0cm}
     \begingroup\centering
         \vspace*{-48pt}% (2pt + 18pt) (header) + 2em
@@ -196,10 +198,11 @@
 }{%
     \end{list}
     \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}l@{}}
-        \Student@nom & \signplace{}~\assignment@sign@stud\\
+        \Student@nom & \signplace{}~\assignment@sign@stud\\shutdo
         Керівник роботи & \signplace{}~\assignment@sign@cur
     \end{tabular*}
     \setlength{\parindent}{1.25cm}
+    \clearpage
 }
 
 \newenvironment{consultants}[1][|L{5.75cm}|L{5.3cm}|C{2.5cm}|C{2.5cm}|]{%
