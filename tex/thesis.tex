@@ -35,39 +35,30 @@
     \item Термін подання студентом роботи: \dateplaceholder{} % \inquot{11} червня 2025 р.
 
     % у пункті «Вихідні дані до роботи» потрібно вказати кількісні/якісні показники щодо умов, засобів та методів, які характеризують спрямованість дослідження, конкретизують методику розв'язання задачі та проведення експерименту
-    \item Об’єкт дослідження: методи стиснення, модифікації архітектурних компонентів та підвищення ефективності виконання операцій нейронних мереж для їхнього навчання та розгортання в умовах обмежених ресурсів. 
-    Дослідження охоплює етапи від адаптивного тренування до оцінки впливу дискретизації та зміни архітектури шарів на загальну поведінку нейронних мереж.
+    \item Об’єкт дослідження: методи стиснення та перебудови архітектур моделей глибинного навчання для задачі класифікації у межах парадигми TinyML. Робота фокусується на тому, як комбінування цих технік впливає на баланс між точністю прогнозування та інформаційним представленням моделей, що дозволяє досягати максимального стиснення з мінімальними втратами точності.
 
     % у пункті «Зміст роботи» потрібно вказати завдання з окремих частин дипломної роботи. Формулювати ці завдання потрібно в наказовому способі, починаючи зі слів «розробити», «виконати», «проаналізувати», «провести» тощо
-    \item Предмет дослідження: алгоритми квантування у процесі навчання (Quantization Aware Training, QAT) 
-    та методи апроксимації градієнтів для перетворення ваг нейронних мереж із форматів високої точності у числах з рухомою комою (Floating Point, FP)  до низької розрядності у цілочисельних представленнях (INT8, INT4). 
+    \item Предмет дослідження: алгоритми комбінованого поєднання прунінгу, квантування та дистиляції знань для архітектур ResNet при задачі класифікації зображень. Аналізується взаємодія цих технік, їхній сукупний вплив на точність і обчислювальну складність моделей, а також механізми мінімізації похибок, що виникають при екстримальному стисненні.
     
-    \item Перелік завдань, які потрібно розробити: 
+    \item Перелік завдань, які потрібно виконати: 
         \begin{itemize}[label=--, leftmargin=1.25cm, labelsep=0.75cm]
-            \item Провести огляд та аналіз літератури щодо сучасних методів стиснення та алгоритмічної перебудови нейронних мереж
-            для мінімізація ресурсних витрат, особливостей їх застосування та впровадження у процес тренування та після розгортання.
-            \item Сформувати математичну постановку задачі квантування параметрів нейронної мережі та дослідити методи апроксимації градієнтів 
-            для забезпечення стабільності навчання у форматах низької розрядності.
-            \item Розробити експериментальний програмний комплекс для дослідження квантування у процесі навчання (QAT) на прикладі архітектури 
-            згортокової мережі MobileNetV3.
-            \item Провести серію порівняльних експериментів для оцінки впливу різних конфігурацій QAT на якість прогнозів та обчислювальну складність 
-            моделі при переході до цілочисельних форматів із низькою розрядність (8 біт на менше).
-            \item На основі отриманих результатів розробити та верифікувати методичний підхід (рекомендації) щодо ефективного застосування алгоритмів
-            квантування для стиснення нейронних мереж.
+            \item Провести огляд та аналіз літератури щодо сучасних методів стиснення та алгоритмічної перебудови нейронних мереж для мінімізація ресурсних витрат, особливостей їх застосування та впровадження у процес тренування та після розгортання.
+            \item Розібрати математичні засади розглянутих методів та підходів до їх поєднань.
+            \item Розробити програмне забезпечення для проведення експериментального дослідження поєднання методів стиснення згорткових нейронних мереж на базі архітектур ResNet.
+            \item Провести серію порівняльних експериментів для оцінки впливу різних способів поєднання методів та оцінити вплив запропонованого комбінованого підходу на динаміку між точністю, обчислювальною складність та інформаційним предсавленням моделей.
+            \item Емпірично верифікувати запропонований комбінований метод та нові властивості моделей, що можуть виникати внаслідок екстремальної перебудови параметрів
         \end{itemize}
     
     % у пункті «Перелік ілюстративного матеріалу» потрібно вказати назви ключових для дипломної роботи рисунків та слайдів презентації, із якою студент виступатиме під час захисту дипломної роботи
-    \item Перелік ілюстративного матеріалу: таблиця порівяння методів, графіки та таблиці метрик моделей під процесу тренування, 
-    графіки та таблиці метрик натренованих моделей, схеми шарів та архітектур нейронних мереж, математичні формули та алгоритми, що описують
-    методи квантування. 
+    \item Перелік ілюстративного матеріалу: таблиця порівяння методів, графіки та таблиці метрик моделей під процесу,тренування, графіки та таблиці метрик натренованих моделей, схеми шарів та архітектур нейронних мереж, математичні формули та алгоритми, що описують методи квантування. 
 
     % Костиль, але поки так
     \item Орієнтовний перелік публікацій:  
     
     Perederei B., Qureshi F. Single Hyperspectral Image Super-Resolution Utilizing
-          Implicit Neural Representations [Text] // Proceedings of the 14th International Conference 
-          on Pattern Recognition Applications and Methods - Volume 1: ICPRAM / INSTICC. ––
-          [S. l.] : SciTePress. –– 2025. –– P. 628–635.
+    Implicit Neural Representations [Text] // Proceedings of the 14th International Conference 
+    on Pattern Recognition Applications and Methods - Volume 1: ICPRAM / INSTICC. ––
+    [S. l.] : SciTePress. –– 2025. –– P. 628–635.
     % у пункті «Консультанти розділів роботи» потрібно в окремих рядках таблиці вказати назви розділів, а також прізвища, ініціали та посади консультантів цих розділів (за наявності, у протилежному випадку цей пункт можна пропустити). Варто зазначити, що консультант із нормоконтролю є консультантом усієї роботи, а не окремих розділів, тому в цьому пункті його зазначати непотрібно
     % \item
     % \begin{consultants}
@@ -103,60 +94,41 @@
 
 \textbf{Актуальність теми}
 
-Актуальність теми зумовлена стрімким розвитком глибинного навчання та критичною потребою в оптимізації моделей для реальних застосувань. 
-Основною проблемою є масштабованість моделей, оскільки сучасні архітектури стають надто громіздкими для масового 
-впровадження. Через гостру нестачу обчислювальних ресурсів для інференсу великих мовних моделей (LLM), виникає висока потреба
-в методах, які дозволять мінмізувати використання обчислювальних витрат та пам'яті при збереженні функціональних можливостей моделей.
+Актуальність теми зумовлена стрімким розвитком глибинного навчання та критичною потребою в оптимізації моделей для реальних застосувань. Основною проблемою є масштабованість моделей, оскільки сучасні архітектури стають надто громіздкими для масового впровадження. Через гостру нестачу обчислювальних ресурсів для інференсу великих мовних моделей (LLM), виникає висока потреба у методах, які дозволять мінмізувати використання обчислювальних витрат та пам'яті при збереженні функціональних можливостей моделей.
 
-Також застосування таких методів дає можливість запускати нейронні мережі на периферійних пристроях, 
-створюючи рішення для випадків, де приватність даних, низька затримка та автономність є вирішальними. 
+Також застосування таких методів дає можливість запускати нейронні мережі на периферійних пристроях, створюючи рішення для випадків, де приватність даних, низька затримка та автономність є вирішальними. 
 
 \textbf{Зв’язок роботи з науковими програмами, планами, темами}
 
-Робота над магістерською дисертацією проводилась згідно з науковим планом дослідницьких робіт кафедри прикладної математики 
-Національного технічного університету України «Київський політехнічний інститут імені Ігоря Сікорського», 
-а також у рамках дослідницької програми «Responsible AI for Ukraine» Research Program (Факультет прикладних наук УКУ у співпраці з Center for Responsible AI при NYU Tandon School of Engineering). 
+Робота над магістерською дисертацією проводилась згідно з науковим планом дослідницьких робіт кафедри прикладної математики Національного технічного університету України «Київський політехнічний інститут імені Ігоря Сікорського», а також у рамках дослідницької програми «Responsible AI for Ukraine» Research Program від факультет прикладних наук Українського католицького університету у співпраці з Center for Responsible AI при New York University Tandon School of Engineering. 
 
 \textbf{Мета і задачі дослідження}
-Метою роботи є розробка та дослідження методів ефективного стиснення нейронних мереж для їх тренування та розгортання 
-в умовах обмежених обчислювальних ресурсів. Основним завданням є критична оцінка готовності наявних методів до використання у реальних технічних задачах. 
-Дослідження спрямоване на пошук наукових прогалин щодо практичного застосування таких технік та їх теоретичне і емпіричне заповнення. 
-Окрему увагу приділено аналізу компромісів, які виникають під час використання таких методів, а саме між точністю, швидкістю та обсягом використання пам'яті.
+Метою дослідження є розробка вдосконаленого методу комбінованого стиснення нейромереж шляхом впровадження кращого алгоритму поєднання прунінгу, квантування та дистиляції знань. На основі аналізу існуючих рішень робота спрямована на отримання синергії між цими техніками для забезпечення кращих характеристик при стисненні, аніж при застосуванні методів окремо або тих технік поєднання, що вже запропоновані у літературі. Також передбачається емпірична верифікацію відомих теоретичних властивостей стиснених архітектур та виявлення нових властивостей, що виникають при екстремальній перебудові параметрів.
 
-\textbf{Об’єктом дослідження} є є процес стиснення параметрів та алгоритмічної перебудови архітектури моделей глибинного навчання 
-для забезпечення їхнього тренування та функціонування в умовах обмежених апаратних ресурсів.
+\textbf{Об’єктом дослідження} є підходи стиснення та алгоритмічної перебудови архітектур моделей глибинного навчання, особливо тих, що базуються на методах підрізання параметрів, квантування ваг, дистиляції знань та їх поєднання, для розв’язання задач класифікації у межах парадигми TinyML. Дослідження охоплює аналіз методів стиснення, їх взаємодії та сукупний вплив на динаміку компромісу між інформаційним переставленням моделі, її обчислювальною складністю та точністю прогнозування. Розглядаються механізми перетворення структури та чисельних представлень параметрів нейронних мереж, що дозволяють досягти високого рівня стиснення при мінімізації деградації точності. Окремо приділяється увага емпіричному дослідженню та аналізу  результатів перебудови нейронних мереж з метою виявлення  переваг, недоліків та нових властивостей, що виникають внаслідок екстремального стиснення моделей у відповідності до теоретичних положень та практичних результатів, викладених у сучасній наукової літератури.
 
-\textbf{Предметом дослідження} є алгоритми квантування у процесі навчання та методи апроксимації градієнтів для перетворення 
-параметрів нейронних мереж у цілочисельні формати низької розрядності.
+\textbf{Предметом дослідження} є способи поєднання різних стратегій підрізання ваг, квантування у процесі навчання та дистиляції знань. Досліджується взаємний вплив цих методів на характеристики архітектур згортових нейронних мереж сімейства ResNet, адаптованих для задач класифікації зображень у системах із обмеженими ресурсами. Аналізується динаміка зміни інформаційної ємності та точності моделей при одночасному застосуванні декількох технік стиснення, а також механізми мінімізації сумарної похибки, що виникає внаслідок сильної перебудови чисельних представлень ваг мережі.
 
 \textbf{Методи дослідження}
 
-Теоретичну базу складають методи математичної апроксимації та статистичного аналізу розподілу ваг для формування низькорозрядних представлень параметрів нейронних мереж. 
-Метож стиснення реалізується через алгоритми квантування у процесі навчання (QAT), що передбачають впровадження імітаційних шарів дискретизації для корекції градієнтів під час тренування. 
-У результаті задача зводиться до пошуку оптимальних значень масштабних коефіцієнтів та зміщень, що мінімізують похибку дискретизації при переході до цілочисельних форматів із низькою розрядністю.
+Методи дослідження базуються на теоретичному аналізі та експериментальному дослідженні методів стиснення моделей глибинного навчання. У роботі застосовуються різні підходи до підрізання параметрів, квантування ваг та дистиляція знань, а також досліджується їх процес комбінування. Експерименти проводяться на згорткових нейронних мережах сімейства ResNet для задач класифікації зображень. Аналізується вплив стиснення на точність моделі, кількість параметрів, обсяг пам’яті та обчислювальну складність. Результати порівнюються з базовими та із стисненими моделями.
 
 \textbf{Наукова новизна отриманих результатів} полягає у наступному:
     \begin{itemize}[label=--, leftmargin=1.25cm, labelsep=0.75cm]
-            \item уперше запропоновано комплексну стратегію екстремального стиснення архітектури MobileNetV3-small до рівня INT4, 
-            яка поєднує методи апроксимації градієнтів для недиференційовних функцій квантування та 
-            адаптивне налаштування параметрів у середовищі Brevitas.
-            \item удосконалено підхід до стабілізації процесу навчання із квантуванням (QAT) для складних структурних блоків (зокрема Squeeze-and-Excitation та Hard-Swish активацій), 
-            що дало змогу мінімізувати деградацію точності при критичному обмеженні розрядності ваг.
-            \item дослідження компромісів (trade-offs) між силою стиснення та стійкістю моделей, що дозволило сформувати 
-            методичні рекомендації щодо вибору оптимальних конфігурацій квантування для вбудованих систем із суворими 
-            обмеженнями Flash та RAM пам’яті.
+        \item запропоновано покращений комбінований метод до стиснення моделей глибинного навчання у порівнянні із наявними у науковій літературі, який передбачає узгоджене поєднання методів підрізання параметрів, квантування ваг та дистиляції знань у межах єдиного процесу.
+
+        \item показано приклад застосування методу та його ефективність на архітектурах згорткових нейронних мереж сімейства ResNet.
+
+        \item досліджено компроміси між рівнем стиснення моделей, їх обчислювальною складністю та точністю прогнозування, виявлено додаткові властивості поведінки нейронних мереж при екстремальному зменшенні чисельних представлень параметрів.
     \end{itemize}
 
 \textbf{Практичне значення одержаних результатів}
 
-Практичне значення одержаних результатів полягає у створенні готового до впровадження технологічного стеку для розгортання моделей EdgeML на мікроконтролерах із лімітом пам'яті до 2 МБ. 
-Розроблені методи стиснення до рівня INT4 дозволяють забезпечити швидкість інференсу до 200 мс на пристроях класу STM32, зберігаючи високу точність класифікації. 
-Сформовані практичні рекомендації, які спрощують перехід від теоретичних досліджень до реальних енергоефективних застосунків у межах парадигми Responsible AI.
+Розроблено метод комбінованого стиснення нейронних мереж, що дозволяє зменшити обсяг пам’яті та обчислювальні витрати моделей при збереженні прийнятного рівня точності. Отримані результати можуть бути використані під час створення та стискання моделей глибинного навчання для вбудованих систем і пристроїв з обмеженими ресурсами, зокрема у застосуваннях парадигми TinyML.
 
 \textbf{Апробація результатів дисертації}
 
-Основні результати роботи були представлені на наукових семінарах та виступах у межах дослідницької програми «Responsible AI for Ukraine», що проводилися спільно з Center for Responsible AI 
-при NYU Tandon School of Engineering та Факультетом прикладних наук УКУ.
+Основні результати роботи були представлені на наукових семінарах та виступах у межах дослідницької програми «Responsible AI for Ukraine», що проводилися спільно з Center for Responsible AI при New York University Tandon School of Engineering та факультетом прикладних наук Українського католицького університету.
 
 \textbf{Публікації}
 
@@ -165,8 +137,7 @@ Perederei B., Qureshi F. Single Hyperspectral Image Super-Resolution Utilizing
           on Pattern Recognition Applications and Methods - Volume 1: ICPRAM / INSTICC. ––
           [S. l.] : SciTePress. –– 2025. –– P. 628–635.
 
-\textbf{Ключові слова:} глибинне навчання, EdgeML, методи стиснення моделей, квантування, Quatization Aware Training,
-периферійні пристрої, низька розрядність ваг, обмежені обчислювальні ресурси. 
+\textbf{Ключові слова:} глибинне навчання, TinyML, методи стиснення, квантування, прунінг, дистиляція знань, екстремальне стиснення, низька розрядність ваг, обмежені обчислювальні ресурси. 
 
 
 % - мета роботи
@@ -190,61 +161,34 @@ edge devices, providing solutions for cases where data privacy, low latency, and
 
 \textbf{Connection of the work with scientific programs, plans, themes}
 
-The Master's thesis research was conducted in accordance with the scientific research plan of the Department of 
-Applied Mathematics at the National Technical University of Ukraine "Igor Sikorsky Kyiv Polytechnic Institute", 
-and within the «Responsible AI for Ukraine» Research Program (Faculty of Applied Sciences at UCU, in collaboration 
-with the Center for Responsible AI at NYU Tandon School of Engineering).
+The work on the Master's thesis was conducted in accordance with the research plan of the Department of Applied Mathematics at the National Technical University of Ukraine "Igor Sikorsky Kyiv Polytechnic Institute." It was also carried out within the framework of the "Responsible AI for Ukraine" Research Program by the Faculty of Applied Sciences of the Ukrainian Catholic University, in collaboration with the Center for Responsible AI at the New York University Tandon School of Engineering.
 
 \textbf{Purpose and tasks of the research}
 
-The purpose of the work is to develop and investigate methods for effective neural network compression for 
-training and deployment in resource-constrained environments. The main task is a critical assessment of the 
-readiness of existing methods for use in real-world technical problems. The research aims to identify scientific 
-gaps regarding the practical application of such techniques and to fill them theoretically and empirically. 
-Particular attention is paid to the analysis of trade-offs arising from the use of such methods, specifically between 
-accuracy, speed, and memory footprint.
+The purpose of the research is to develop an advanced method for combined neural network compression by implementing an enhanced algorithm that integrates pruning, quantization, and knowledge distillation. Based on an analysis of existing solutions, the work seeks to achieve synergy between these techniques to ensure superior compression performance compared to their individual application or previously proposed combination methods in the literature. Furthermore, the study involves the empirical verification of known theoretical properties of compressed architectures and the identification of new properties emerging under extreme parameter reconfiguration.
 
-\textbf{The object of research} is the process of parameter compression and algorithmic restructuring of deep learning
-model architectures to ensure their training and functioning under strict hardware constraints.
+\textbf{The object of research} is the approaches to compression and algorithmic restructuring of deep learning model architectures, particularly those based on parameter pruning, weight quantization, knowledge distillation, and their combinations, for solving classification tasks within the TinyML paradigm. The study encompasses the analysis of compression methods, their interactions, and their cumulative impact on the dynamics of the trade-off between the model's information density, computational complexity, and predictive accuracy. It examines the mechanisms for transforming the structure and numerical representations of neural network parameters that achieve high compression levels while minimizing accuracy degradation. Special attention is given to the empirical study and analysis of neural network restructuring results to identify the advantages, disadvantages, and emergent properties resulting from extreme model compression, in accordance with the theoretical principles and practical results presented in contemporary scientific literature.
 
-\textbf{The subject of research} is quantization-aware training algorithms and gradient approximation methods 
-for converting neural network parameters into low-precision integer formats.
+\textbf{The subject of research} is the methods for combining different strategies of weight pruning, quantization-aware training (QAT), and knowledge distillation. The study investigates the mutual influence of these methods on the characteristics of convolutional neural network architectures from the ResNet family, adapted for image classification tasks in resource-constrained systems. It analyzes the dynamics of changes in information capacity and model accuracy under the simultaneous application of multiple compression techniques, as well as the mechanisms for minimizing the total error arising from the intensive restructuring of numerical weight representations.
 
 \textbf{Research methods}
 
-The theoretical framework is based on mathematical approximation methods and statistical analysis of weight 
-distribution to form low-precision representations of neural network parameters. 
-The compression method is implemented via quantization-aware training (QAT) algorithms, which involve the 
-introduction of fake quantization layers to correct gradients during training. Consequently, the problem is reduced 
-to finding optimal scale factors and offsets that minimize discretization error when transitioning to low-precision 
-integer formats.
+The research methods are based on theoretical analysis and experimental investigation of deep learning model compression techniques. The work employs various approaches to parameter pruning, weight quantization, and knowledge distillation, and investigates their integration process. Experiments are conducted on convolutional neural networks of the ResNet family for image classification tasks. The impact of compression on model accuracy, parameter count, memory footprint, and computational complexity is analyzed. The results are compared with both baseline and compressed models.
 
 \textbf{Scientific novelty of the obtained results} is as follows:
 \begin{itemize}[label=--, leftmargin=1.25cm, labelsep=0.75cm]
-    \item a comprehensive strategy for extreme compression of the MobileNetV3-small architecture to the 
-    INT4 level was proposed for the first time, combining gradient approximation methods for non-differentiable 
-    quantization functions and adaptive parameter tuning in the Brevitas environment.
-    \item an approach to stabilizing the quantization-aware training process for complex structural blocks 
-    (specifically Squeeze-and-Excitation and Hard-Swish activations) was improved, allowing for minimized accuracy 
-    degradation under critical weight precision constraints.
-    \item investigation of trade-offs between compression strength and model stability was conducted, 
-    resulting in the formation of methodological recommendations for selecting optimal quantization configurations 
-    for embedded systems with severe Flash and RAM limitations.
+    \item an improved combined method for deep learning model compression is proposed, compared to those existing in the scientific literature, which involves the coordinated integration of parameter pruning, weight quantization, and knowledge distillation within a single unified process.
+    \item an application example of the method and its effectiveness on the ResNet family of convolutional neural network architectures is demonstrated.
+    \item the trade-offs between the level of model compression, computational complexity, and predictive accuracy are investigated, and additional behavioral properties of neural networks under extreme reduction of numerical parameter representations are identified.
 \end{itemize}
 
 \textbf{Practical significance of the obtained results}
 
-The practical significance lies in the creation of a ready-to-implement technology stack for deploying EdgeML 
-models on microcontrollers with a memory limit of up to 2 MB. Developed INT4 compression methods enable an inference 
-speed of up to 200 ms on STM32-class devices while maintaining high classification accuracy. 
-Practical recommendations were formulated to simplify the transition from theoretical research to real-world 
-energy-efficient applications within the Responsible AI paradigm.
+A method for the combined compression of neural networks has been developed, allowing for a reduction in memory usage and computational costs while maintaining an acceptable level of accuracy. The results obtained can be utilized in the creation and compression of deep learning models for embedded systems and resource-constrained devices, particularly in applications within the TinyML paradigm.
 
 \textbf{Approbation of the thesis results}
 
-The main results of the work were presented at scientific seminars and presentations within the 
-«Responsible AI for Ukraine» research program, conducted jointly with the Center for Responsible AI at NYU 
-Tandon School of Engineering and the Faculty of Applied Sciences at UCU.
+The main results of the work were presented at scientific seminars and presentations within the «Responsible AI for Ukraine» research program, conducted jointly with the Center for Responsible AI at the New York University Tandon School of Engineering and the Faculty of Applied Sciences of the Ukrainian Catholic University.
 
 \textbf{Publications}
 
@@ -252,8 +196,7 @@ Perederei B., Qureshi F. Single Hyperspectral Image Super-Resolution Utilizing I
 [Text] // Proceedings of the 14th International Conference on Pattern Recognition Applications and Methods - 
 Volume 1: ICPRAM / INSTICC. –– [S. l.] : SciTePress. –– 2025. –– P. 628–635.
 
-\textbf{Keywords:} deep learning, EdgeML, model compression methods, quantization, 
-Quantization Aware Training, edge devices, low-precision weights, constrained computational resources.
+\textbf{Keywords:} deep learning, TinyML, compression methods, quantization, pruning, knowledge distillation, extreme compression, low-bit weight precision, resource-constrained environments.
 
 \clearpage
 
