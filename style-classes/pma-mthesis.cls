@@ -77,7 +77,7 @@
             \noindent
             \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}l@{}}
                 «На правах рукопису» & \inquot{До захисту допущено} \\
-                УДК 517.9            & Завідувач кафедри \\
+                УДК 004.85           & Завідувач кафедри \\
                                     & \signplace{} \cmdpma@Title@headOfDepartment \\
                                     & \inquot{\_\_\_} \signplace{} \cmdpma@Title@year~р.
             \end{tabular*}
