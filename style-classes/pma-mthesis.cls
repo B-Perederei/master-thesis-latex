@@ -198,10 +198,10 @@
 }{%
     \end{list}
     \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}l@{}}
-        \Student@nom & \signplace{}\hspace{1.25cm}\assignment@sign@stud\\
-        Науковий керівник дисертації & \signplace{}\hspace{1.25cm}\assignment@sign@cur
+        \Student@nom & \signplace{}\hspace{2.25cm}\assignment@sign@stud\\
+        Науковий керівник дисертації & \signplace{}\hspace{2.25cm}\assignment@sign@cur
     \end{tabular*}
-    \setlength{\parindent}{1.25cm}
+    \setlength{\parindent}{2.25cm}
     \clearpage
 }
 
@@ -226,7 +226,7 @@
             \endfoot%
 }{\end{longtable}\endgroup}
 
-\newenvironment{calenderplan}[1][|C{0.7cm}|L{8.3cm}|C{5cm}|c|]{%
+\newenvironment{calenderplan}[1][|C{1.25cm}|L{8cm}|C{5cm}|c|]{%
     \begingroup\centering
         Календарний план
         \begin{longtable}{#1}
