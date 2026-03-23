@@ -201,7 +201,7 @@
 \renewcommand{\thesubfigure}{\alph{subfigure}} % замінюємо латинські літери на кириличні в підрисунках
 
 % Налаштування стилів назв
-\DeclareCaptionLabelSeparator{emdash}{ --- }
+\DeclareCaptionLabelSeparator{emdash}{ -- }
 \captionsetup[table]{% таблиці
     font={stretch=1.5},
     margin=1.25cm,

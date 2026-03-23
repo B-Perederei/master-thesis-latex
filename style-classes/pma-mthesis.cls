@@ -77,7 +77,7 @@
             \noindent
             \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}l@{}}
                 «На правах рукопису» & \inquot{До захисту допущено} \\
-                УДК 517.9            & Завідувач кафедри \\
+                УДК 004.85           & Завідувач кафедри \\
                                     & \signplace{} \cmdpma@Title@headOfDepartment \\
                                     & \inquot{\_\_\_} \signplace{} \cmdpma@Title@year~р.
             \end{tabular*}
@@ -102,7 +102,7 @@
                 \vfill
                 Керівник:
 
-                \cmdpma@Title@supervisorTitles
+                \cmdpma@Title@supervisorTitles,
 
                 \cmdpma@Title@supervisor\hfill\signplace\hspace{2cm}
 
@@ -118,14 +118,14 @@
                 \vfill
                 Консультант з нормоконтролю:
 
-                \cmdpma@Title@normConsultantTitles
+                \cmdpma@Title@normConsultantTitles,
 
                 \cmdpma@Title@normConsultant\hfill\signplace\hspace{2cm}
 
                 \vfill
                 Рецензент:
 
-                \cmdpma@Title@reviewerTitles
+                \cmdpma@Title@reviewerTitles,
 
                 \cmdpma@Title@reviewer\hfill\signplace\hspace{2cm}
 
@@ -142,6 +142,8 @@
 }
 % завдання на дипломну роботу
 \newenvironment{assignment}[3]{%
+    \clearpage
+    \pagestyle{empty}
     \setlength{\parindent}{0cm}
     \begingroup\centering
         \vspace*{-48pt}% (2pt + 18pt) (header) + 2em
@@ -154,7 +156,7 @@
         \textbf{Кафедра прикладної математики}
 
         \begingroup\raggedright
-            Рівень вищої освіти --- перший (бакалаврський)
+            Рівень вищої освіти --- другий (магістерський)
 
             Спеціальність --- \cmdpma@Title@specialty{}
 
@@ -173,7 +175,7 @@
         \vspace{0.5em}
         \textbf{\MakeUppercase{Завдання}}
 
-        \textbf{на дипломну роботу \student@dat}
+        \textbf{на магістерську дисертацію \student@dat}
 
         #1
 
@@ -196,10 +198,11 @@
 }{%
     \end{list}
     \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}l@{}}
-        \Student@nom & \signplace{}~\assignment@sign@stud\\
-        Керівник роботи & \signplace{}~\assignment@sign@cur
+        \Student@nom & \signplace{}\hspace{1.25cm}\assignment@sign@stud\\
+        Науковий керівник дисертації & \signplace{}\hspace{1.25cm}\assignment@sign@cur
     \end{tabular*}
     \setlength{\parindent}{1.25cm}
+    \clearpage
 }
 
 \newenvironment{consultants}[1][|L{5.75cm}|L{5.3cm}|C{2.5cm}|C{2.5cm}|]{%
@@ -223,19 +226,19 @@
             \endfoot%
 }{\end{longtable}\endgroup}
 
-\newenvironment{calenderplan}[1][|C{0.7cm}|L{9.3cm}|C{4cm}|c|]{%
+\newenvironment{calenderplan}[1][|C{0.7cm}|L{8.3cm}|C{5cm}|c|]{%
     \begingroup\centering
         Календарний план
         \begin{longtable}{#1}
             \hline № з/п &
-            {\centering Назва етапу виконання\par дипломної роботи\par} &
-            Термін виконання етапу роботи &
+            {\centering Назва етапів виконання\par магістерської дисертації\par} &
+            {\centering Термін виконання \par етапів магістерської \par дисертації} &
             {\centering Примітка}\\\hline
             \endfirsthead
             \kill
             \hline № з/п &
-            {\centering Назва етапу виконання\par дипломної роботи\par} &
-            Термін виконання етапу роботи &
+            {\centering Назва етапу виконання\par  магістерської дисертації\par} &
+            {\centering Термін виконання \par етапів магістерської \par дисертації} &
             {\centering Примітка}\\\hline
             \endhead
             \hline
