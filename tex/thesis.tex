@@ -42,7 +42,7 @@
     
     \item Орієнтовний перелік ілюстративного матеріалу: математична формалізація методів стиснення, графіки процесу тренування моделей, порівняльні таблиці комбінованих методів із метриками, діаграми шарів та архітектур нейронних мереж.
 
-    \item Орієнтовний перелік публікацій: стаття «Single Hyperspectral Image Super-Resolution Utilizing Implicit Neural Representations» на науковій конференції «International Conference on Pattern Recognition Applications and Methods (ICPRAM) 2025». 
+    \item Орієнтовний перелік публікацій: стаття «Single Hyperspectral Image Super-Resolution Utilizing Implicit Neural Representations» на міжнародній науковій конференції «International Conference on Pattern Recognition Applications and Methods (ICPRAM) 2025». 
     % у пункті «Консультанти розділів роботи» потрібно в окремих рядках таблиці вказати назви розділів, а також прізвища, ініціали та посади консультантів цих розділів (за наявності, у протилежному випадку цей пункт можна пропустити). Варто зазначити, що консультант із нормоконтролю є консультантом усієї роботи, а не окремих розділів, тому в цьому пункті його зазначати непотрібно
     % \item
     % \begin{consultants}
@@ -87,32 +87,24 @@
 
 \textbf{Методи дослідження.} Для розв’язання поставлених завдань використовувалися: методи глибинного навчання та математичної оптимізації (для налаштування та навчання моделей); апарат теорії інформації (для реалізації технік стиснення); методи теорії алгоритмів (для проектування комбінованої схеми); математична статистика та методологія наукових досліджень (для верифікації гіпотез та аналізу синергетичного ефекту інтегрованих підходів).
 
-% Stopped here
+% Need to finish the research to be able to write more precise
 \textbf{Наукова новизна отриманих результатів} складається з таких положень:
-    \begin{itemize}[label=--, leftmargin=1cm, labelsep=0.75cm]
-        \item запропоновано покращений комбінований метод до стиснення моделей глибинного навчання у порівнянні із наявними у науковій літературі, який передбачає узгоджене поєднання методів підрізання параметрів, квантування ваг та дистиляції знань у межах єдиного процесу.
-
-        \item показано приклад застосування методу та його ефективність на архітектурах згорткових нейронних мереж сімейства ResNet.
-
-        \item досліджено компроміси між рівнем стиснення моделей, їх обчислювальною складністю та точністю прогнозування, виявлено додаткові властивості поведінки нейронних мереж при екстремальному зменшенні чисельних представлень параметрів.
+    \begin{itemize}[label=--, partopsep=0pt, parsep=0pt, topsep=0pt, itemsep=0pt, itemindent=1.7cm, leftmargin=0pt]
+        \item уперше реалізовано комбінований метод стиснення нейронних мереж, що базується на інтеграції підходів дистиляції знань на основі відношень, неструктурованого динамічного і статичного підрізання ваг та квантуванні під час навчання. На відміну від інших існуючих інтегрованих підходів запропонований метод використовує функцію втрат дистиляції безпосередньо під час застосування квантування та підрізання, а не як окремий незалежний етап донавчання.
+        
+        \item встановлено особливості вибору архітектурних конфігурацій вчителя та учня, які необхідні для забезпечення статистично значущого приросту точності моделі порівняно зі сценаріями застосування алгоритму квантування та підрізання ваг без дистиляції знань. Показано вплив комбінованого стиснення моделей глибинного навчання на стійкість до атак типу білої скриньки.
     \end{itemize}
 
-\textbf{Практичне значення одержаних результатів.}
+\textbf{Практичне значення одержаних результатів.} Запропонований метод та розроблене програмне забезпечення забезпечують радикальне зменшення обсягу пам’яті для збереження ваг і обчислювальних витрат на виконання моделей за умови мінімальної деградації точності. Отримані результати можуть бути інтегровані у процеси розробки інтелектуальних систем для периферійних пристроїв у межах парадигми TinyML.
 
-Розроблено метод комбінованого стиснення нейронних мереж, що дозволяє зменшити обсяг пам’яті та обчислювальні витрати моделей при збереженні прийнятного рівня точності. Отримані результати можуть бути використані під час створення та стискання моделей глибинного навчання для вбудованих систем і пристроїв з обмеженими ресурсами, зокрема у застосуваннях парадигми TinyML.
+\textbf{Апробація результатів дисертації.} Основні результати роботи були представлені на наукових семінарах та виступах у межах дослідницької програми «Responsible AI for Ukraine», що проводилися спільно з Center for Responsible AI при New York University Tandon School of Engineering та факультетом прикладних наук Українського католицького університету.
 
-\textbf{Апробація результатів дисертації.}
+\textbf{Публікації.} Результати дисертації викладено в 1 науковій праці, у тому числі:
+    \begin{itemize}[label=--, partopsep=0pt, parsep=0pt, topsep=0pt, itemsep=0pt, itemindent=1.7cm, leftmargin=0pt]
+        \item у 1 статті, опублікованої у матеріалах міжнародної наукової конференції, включеної до бази Scopus.
+    \end{itemize}
 
-Основні результати роботи були представлені на наукових семінарах та виступах у межах дослідницької програми «Responsible AI for Ukraine», що проводилися спільно з Center for Responsible AI при New York University Tandon School of Engineering та факультетом прикладних наук Українського католицького університету.
-
-\textbf{Публікації.}
-
-Perederei B., Qureshi F. Single Hyperspectral Image Super-Resolution Utilizing
-          Implicit Neural Representations [Text] // Proceedings of the 14th International Conference 
-          on Pattern Recognition Applications and Methods - Volume 1: ICPRAM / INSTICC. ––
-          [S. l.] : SciTePress. –– 2025. –– P. 628–635.
-
-\textbf{Ключові слова:} глибинне навчання, TinyML, методи стиснення, квантування, прунінг, дистиляція знань, екстремальне стиснення, низька розрядність ваг, обмежені обчислювальні ресурси. 
+\textbf{Ключові слова:} глибинне навчання, TinyML, методи стиснення, квантування, підрізання, дистиляція знань, екстремальне стиснення, низька розрядність ваг, обмежені обчислювальні ресурси. 
 
 
 % - мета роботи
@@ -123,53 +115,34 @@ Perederei B., Qureshi F. Single Hyperspectral Image Super-Resolution Utilizing
 
 \annotation{Abstract}
 % «Abstract» (анотація англійською мовою) повинна бути перекладом анотації українською мовою. Обсяг «Abstract» повинен становити не менше за 650 знаків (із пробілами).
-This thesis is submitted on \totpages{page}{pages}{pages}, it has \totapp{appendix}{appendices}{appendices} and \totcit{reference}{references}{references}. There are \totfig{figure}{figures}{figures} and \tottab{table}{tables}{tables} in this document.
+The Master’s thesis consists of \totpages{page}{pages}{pages}, it has \totapp{appendix}{appendices}{appendices} and \totcit{reference}{references}{references}. The work includes \totfig{figure}{figures}{figures} and \tottab{table}{tables}{tables}.
 
-\textbf{Relevance of the topic.}
+\textbf{Topic relevance.} The rapid advancement of deep learning creates an urgent need for model compression techniques to ensure efficient deployment. The primary challenge lies in limited scalability, as modern architectures, particularly large language models, become increasingly bulky, establishing a high barrier to their mass adoption. Amidst a global shortage of computing power, compression methods that drastically reduce memory and computational resource usage while maintaining high functional accuracy have become critically important. Another key driver for developing such methods is the recent trend of shifting computational workloads from centralized servers directly to edge devices, such as smartphones, IoT sensors, and autonomous systems. Furthermore, analysis of recent research indicates that applying compression methods in isolation is less effective than their complex combination, yet achieving effective synergy between them remains an unresolved task.
 
-The relevance of the topic is driven by the rapid development of deep learning and the critical need to optimize 
-models for real-world applications. The primary challenge is model scalability, as modern architectures become too 
-cumbersome for mass deployment. Due to the acute shortage of computational resources for the inference of 
-Large Language Models (LLMs), there is a high demand for methods that minimize computational costs and memory 
-usage while preserving model functionality. Furthermore, such methods enable the execution of neural networks on 
-edge devices, providing solutions for cases where data privacy, low latency, and autonomy are decisive factors.
+\textbf{Thesis connection to scientific programs, plans, and topics.} The work on the Master's thesis was conducted in accordance with the research plan of the Department of Applied Mathematics of the National Technical University of Ukraine «Igor Sikorsky Kyiv Polytechnic Institute», as well as within the «Responsible AI for Ukraine» research program by the Faculty of Applied Sciences of the Ukrainian Catholic University in collaboration with the Center for Responsible AI at the New York University Tandon School of Engineering.
 
-\textbf{Connection of the work with scientific programs, plans, themes.}
+\textbf{Research goal and objectives.} The objective of the research is to maximize the compression ratio of neural networks while minimizing their accuracy degradation by integrating common compression methods into a single combined algorithm. The study is aimed at implementing synergy between these methods to achieve higher compression levels and superior accuracy indicators compared to existing approaches in the literature. Special attention is given to the empirical verification of known theoretical patterns in compressed models and the improvement of their qualitative metrics, as well as to identifying unique effects resulting from the synergy of methods within the framework of the proposed combined approach.
 
-The work on the Master's thesis was conducted in accordance with the research plan of the Department of Applied Mathematics at the National Technical University of Ukraine «Igor Sikorsky Kyiv Polytechnic Institute». It was also carried out within the framework of the «Responsible AI for Ukraine» Research Program by the Faculty of Applied Sciences of the Ukrainian Catholic University, in collaboration with the Center for Responsible AI at the New York University Tandon School of Engineering.
+\textit{Object of research} is the methods of compression and architectural restructuring of deep learning models within the TinyML paradigm; approaches to combining these methods and their impact on the balance between prediction accuracy and the informational representation of models, aiming to achieve the maximum level of compression with minimal accuracy loss.
 
-\textbf{Purpose and tasks of the research.}
+\textit{Subject of research} is the method of combined compression of «ResNet» architecture models for image classification using pruning, quantization, and knowledge distillation; the cumulative impact of the interaction of these techniques on accuracy, informational representation, and computational complexity of the models; and the mechanisms for minimizing errors that arise during extreme compression.
 
-The purpose of the research is to develop an advanced method for combined neural network compression by implementing an enhanced algorithm that integrates pruning, quantization, and knowledge distillation. Based on an analysis of existing solutions, the work seeks to achieve synergy between these techniques to ensure superior compression performance compared to their individual application or previously proposed combination methods in the literature. Furthermore, the study involves the empirical verification of known theoretical properties of compressed architectures and the identification of new properties emerging under extreme parameter reconfiguration.
+\textbf{Research methods.} To address the defined objectives, the following were employed: deep learning and mathematical optimization methods (for model tuning and training); the apparatus of information theory (for implementing compression techniques); algorithm theory methods (for designing the combined scheme); mathematical statistics and scientific research methodology (for hypothesis verification and analysis of the synergistic effect of the integrated approaches).
 
-\textbf{The object of research} is the approaches to compression and algorithmic restructuring of deep learning model architectures, particularly those based on parameter pruning, weight quantization, knowledge distillation, and their combinations, for solving classification tasks within the TinyML paradigm. The study encompasses the analysis of compression methods, their interactions, and their cumulative impact on the dynamics of the trade-off between the model's information density, computational complexity, and predictive accuracy. It examines the mechanisms for transforming the structure and numerical representations of neural network parameters that achieve high compression levels while minimizing accuracy degradation. Special attention is given to the empirical study and analysis of neural network restructuring results to identify the advantages, disadvantages, and emergent properties resulting from extreme model compression, in accordance with the theoretical principles and practical results presented in contemporary scientific literature.
-
-\textbf{The subject of research} is the methods for combining different strategies of weight pruning, quantization-aware training (QAT), and knowledge distillation. The study investigates the mutual influence of these methods on the characteristics of convolutional neural network architectures from the ResNet family, adapted for image classification tasks in resource-constrained systems. It analyzes the dynamics of changes in information capacity and model accuracy under the simultaneous application of multiple compression techniques, as well as the mechanisms for minimizing the total error arising from the intensive restructuring of numerical weight representations.
-
-\textbf{Research methods.}
-
-The research methods are based on theoretical analysis and experimental investigation of deep learning model compression techniques. The work employs various approaches to parameter pruning, weight quantization, and knowledge distillation, and investigates their integration process. Experiments are conducted on convolutional neural networks of the ResNet family for image classification tasks. The impact of compression on model accuracy, parameter count, memory footprint, and computational complexity is analyzed. The results are compared with both baseline and compressed models.
-
-\textbf{Scientific novelty of the obtained results} is as follows:
-\begin{itemize}[label=--, leftmargin=1.25cm, labelsep=0.75cm]
-    \item an improved combined method for deep learning model compression is proposed, compared to those existing in the scientific literature, which involves the coordinated integration of parameter pruning, weight quantization, and knowledge distillation within a single unified process.
-    \item an application example of the method and its effectiveness on the ResNet family of convolutional neural network architectures is demonstrated.
-    \item the trade-offs between the level of model compression, computational complexity, and predictive accuracy are investigated, and additional behavioral properties of neural networks under extreme reduction of numerical parameter representations are identified.
+\textbf{Scientific novelty} consists of the following:
+\begin{itemize}[label=--, partopsep=0pt, parsep=0pt, topsep=0pt, itemsep=0pt, itemindent=1.7cm, leftmargin=0pt]
+    \item for the first time, a сombined method for neural network compression has been implemented, based on the integration of relation-based knowledge distillation, unstructured dynamic and static weight pruning, and quantization-aware training. Unlike other existing integrated approaches, the proposed method utilizes the distillation loss function directly during the application of quantization and pruning, rather than as a separate independent fine-tuning stage.
+    \item specific features for selecting teacher and student architectural configurations necessary to ensure a statistically significant increase in model accuracy compared to scenarios using weight quantization and pruning algorithms without knowledge distillation have been established. The impact of combined deep learning model compression on robustness against white-box attacks has been demonstrated.
 \end{itemize}
 
-\textbf{Practical significance of the obtained results.}
+\textbf{Practical value of obtained results.} The proposed method and the developed software provide a radical reduction in the memory footprint for weight storage and the computational overhead for model execution, while ensuring minimal accuracy degradation. The obtained results can be integrated into the development processes of intelligent systems for edge devices within the TinyML paradigm.
 
-A method for the combined compression of neural networks has been developed, allowing for a reduction in memory usage and computational costs while maintaining an acceptable level of accuracy. The results obtained can be utilized in the creation and compression of deep learning models for embedded systems and resource-constrained devices, particularly in applications within the TinyML paradigm.
+\textbf{Approbation of the thesis results.} The key results of the work were presented at scientific seminars and presentations within the «Responsible AI for Ukraine» research program, held jointly with the Center for Responsible AI at the New York University Tandon School of Engineering and the Faculty of Applied Sciences of the Ukrainian Catholic University.
 
-\textbf{Approbation of the thesis results.}
-
-The main results of the work were presented at scientific seminars and presentations within the «Responsible AI for Ukraine» research program, conducted jointly with the Center for Responsible AI at the New York University Tandon School of Engineering and the Faculty of Applied Sciences of the Ukrainian Catholic University.
-
-\textbf{Publications.}
-
-Perederei B., Qureshi F. Single Hyperspectral Image Super-Resolution Utilizing Implicit Neural Representations 
-[Text] // Proceedings of the 14th International Conference on Pattern Recognition Applications and Methods - 
-Volume 1: ICPRAM / INSTICC. –– [S. l.] : SciTePress. –– 2025. –– P. 628–635.
+\textbf{Publications.} The research results are presented in 1 scientific publication, including:
+    \begin{itemize}[label=--, partopsep=0pt, parsep=0pt, topsep=0pt, itemsep=0pt, itemindent=1.7cm, leftmargin=0pt]
+        \item 1 article published in the proceedings of an international scientific conference, indexed in the Scopus database.
+    \end{itemize}
 
 \textbf{Keywords:} deep learning, TinyML, compression methods, quantization, pruning, knowledge distillation, extreme compression, low-bit weight precision, resource-constrained environments.
 
