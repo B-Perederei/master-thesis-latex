@@ -87,7 +87,7 @@
 
             \textbf{на здобуття ступеня магістра}
 
-            \textbf{за освітньо-професійною програмою \inquot{\cmdpma@Title@program}}
+            \textbf{за освітньо-науковою програмою \inquot{\cmdpma@Title@program}}
 
             \textbf{спеціальності \cmdpma@Title@specialty}
 
@@ -151,7 +151,7 @@
 
         \textbf{\inquot{Київський політехнічний інститут імені Ігоря Сікорського}}
 
-        \textbf{Факультет прикладної математики}
+        \textbf{Факультет програмних систем та прикладної математики}
 
         \textbf{Кафедра прикладної математики}
 
@@ -160,7 +160,7 @@
 
             Спеціальність --- \cmdpma@Title@specialty{}
 
-            Освітньо-професійна програма~\inquot{\cmdpma@Title@program}
+            Освітньо-наукова програма~\inquot{\cmdpma@Title@program}
 
         \endgroup
 
