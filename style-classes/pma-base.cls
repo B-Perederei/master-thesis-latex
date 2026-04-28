@@ -204,7 +204,7 @@
 \DeclareCaptionLabelSeparator{emdash}{ -- }
 \captionsetup[table]{% таблиці
     font={stretch=1.5},
-    margin=1.25cm,
+    margin=0cm,
     labelsep=emdash,
     aboveskip=3pt,
     belowskip=18pt,
