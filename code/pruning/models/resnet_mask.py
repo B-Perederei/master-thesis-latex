@@ -460,13 +460,6 @@ class ResNet_CIFAR(nn.Module):
         return nn.Sequential(*layers)
 
 
-
-
-    # type value 0 -> pruned and update only important
-    # type value 0 -> pruned and update only important
-    # type value 0 -> pruned and update only important
-
-
     def _forward_impl(self, x, type_value,n_bits,acti_n_bits,acti_quan):
         # See note [TorchScript super()]
         
@@ -601,6 +594,7 @@ class TCResNet(nn.Module):
         out = self.conv(inputs)
         out = self.layers(out)
         
+        # 분류기
         out = self.pool(out)
         out = out.view(out.shape[0], -1)
         out = self.linear(out)
@@ -650,70 +644,6 @@ class MFCC_TCResnet(nn.Module):
         logits      = self.tc_resnet(mel_sepctogram)
         return logits
 
-    
-    
-# class audio_Block(nn.Module):
-#     def __init__(self, in_channels, out_channels, conv_kernel, downsample=False):
-#         super(audio_Block, self).__init__()
-#         self.downsample = downsample
-#         self.conv1 = nn.Conv2d(in_channels, out_channels, kernel_size=conv_kernel, stride=(2 if downsample else 1), padding=1)
-#         self.bn1 = nn.BatchNorm2d(out_channels)
-#         self.conv2 = nn.Conv2d(out_channels, out_channels, kernel_size=conv_kernel, stride=1, padding=1)
-#         self.bn2 = nn.BatchNorm2d(out_channels)
-        
-#         if downsample:
-#             self.downsample_layer = nn.Conv2d(in_channels, out_channels, kernel_size=1, stride=2)
-#             self.downsample_bn = nn.BatchNorm2d(out_channels)
-    
-#     def forward(self, x):
-#         identity = x
-        
-#         out = F.relu(self.bn1(self.conv1(x)))
-#         out = self.bn2(self.conv2(out))
-        
-#         if self.downsample:
-#             identity = self.downsample_bn(self.downsample_layer(x))
-        
-#         out += identity
-#         return F.relu(out)
-
-
-# class TCResNet(nn.Module):
-#     def __init__(self, n_input=1, n_output=35, stride=16, n_channel=32):
-#         super().__init__()
-#         self.conv1 = nn.Conv1d(n_input, n_channel, kernel_size=80, stride=stride)
-#         self.bn1 = nn.BatchNorm1d(n_channel)
-#         self.pool1 = nn.MaxPool1d(4)
-#         self.conv2 = nn.Conv1d(n_channel, n_channel, kernel_size=3)
-#         self.bn2 = nn.BatchNorm1d(n_channel)
-#         self.pool2 = nn.MaxPool1d(4)
-#         self.conv3 = nn.Conv1d(n_channel, 2 * n_channel, kernel_size=3)
-#         self.bn3 = nn.BatchNorm1d(2 * n_channel)
-#         self.pool3 = nn.MaxPool1d(4)
-#         self.conv4 = nn.Conv1d(2 * n_channel, 2 * n_channel, kernel_size=3)
-#         self.bn4 = nn.BatchNorm1d(2 * n_channel)
-#         self.pool4 = nn.MaxPool1d(4)
-#         self.fc1 = nn.Linear(2 * n_channel, n_output)
-
-#     def forward(self, x):
-#         x = self.conv1(x)
-#         x = F.relu(self.bn1(x))
-#         x = self.pool1(x)
-#         x = self.conv2(x)
-#         x = F.relu(self.bn2(x))
-#         x = self.pool2(x)
-#         x = self.conv3(x)
-#         x = F.relu(self.bn3(x))
-#         x = self.pool3(x)
-#         x = self.conv4(x)
-#         x = F.relu(self.bn4(x))
-#         x = self.pool4(x)
-#         x = F.avg_pool1d(x, x.shape[-1])
-#         x = x.permute(0, 2, 1)
-#         x = self.fc1(x)
-#         return F.log_softmax(x, dim=2)
-
-
 class our_Residual(nn.Module):
     def __init__(self,n_bit, in_channels, out_channels):
         super(our_Residual, self).__init__()
@@ -723,19 +653,19 @@ class our_Residual(nn.Module):
         self.acti_quan = 0
         self.acti_n_bits = 0
         
-        if in_channels != out_channels:
+        if in_channels != out_channels: # 스트라이드가 2인 경우
             stride = 2
             self.residual = nn.Sequential(
                 conv1x9(n_bit,in_channels, out_channels, kernel_size = 1, stride = stride),
                 
                 nn.BatchNorm2d(out_channels)) 
-        else:
+        else: # 스트라이드가 1인 경우
             stride = 1
             self.residual = nn.Sequential() 
 
-        if in_channels != out_channels:
+        if in_channels != out_channels: # 스트라이드가 2인 경우
             self.conv1 = conv1x9(n_bit,in_channels, out_channels, stride = stride, padding = (0, 4))
-        else:
+        else: # 스트라이드가 1인 경우
             self.conv1 = conv1x9(n_bit,in_channels, out_channels, stride = stride, padding = (0, 4))
         self.bn1   = nn.BatchNorm2d(out_channels)
         self.conv2 = conv1x9(n_bit,out_channels, out_channels , stride = 1, padding = (0, 4))
@@ -777,6 +707,7 @@ class our_TCResNet(nn.Module):
             layers.append(our_Residual(self.n_bits,in_channels, out_channels))
         self.layers = nn.Sequential(*layers)
 
+        # Average Pooling -> FC -> Softmax로 이어지는 분류기
         self.pool   = nn.AdaptiveAvgPool2d(1)
         self.linear = mnn.MaskLinear(n_bit ,n_channels[-1], n_class)
         # self.linear = nn.Linear(n_channels[-1], n_class)
@@ -817,6 +748,7 @@ class our_TCResNet(nn.Module):
         out = self.conv(inputs)
         out = self.layers(out)
         
+        # 분류기
         out = self.pool(out)
         out = out.view(out.shape[0], -1)
         out = self.linear(out)
@@ -903,12 +835,18 @@ def resnet(data='cifar10', **kwargs):
     mnn = kwargs.get('mnn')
     assert mnn is not None, "Please specify proper pruning method"
     n_bits = kwargs.get('n_bit')
-    if data in ['cifar10', 'cifar100']:
+    if data in ['cifar10', 'cifar100',]:
         if num_layers in cfgs_cifar.keys():
             if int(num_layers) >= 100:
                 model = ResNet_CIFAR(n_bits, Bottleneck, cfgs_cifar[num_layers], int(data[5:]))
             else:
                 model = ResNet_CIFAR(n_bits,BasicBlock, cfgs_cifar[num_layers], int(data[5:]))
+        else:
+            model = None
+        image_size = 32
+    elif data == 'svhn':
+        if num_layers in cfgs_cifar.keys():
+            model = ResNet_CIFAR(n_bits,BasicBlock, cfgs_cifar[num_layers], 10)
         else:
             model = None
         image_size = 32
@@ -939,16 +877,3 @@ def resnet(data='cifar10', **kwargs):
         image_size = None
 
     return model, image_size
-
-def TCResNet8(inputs, num_classes, width_multiplier=1.0):
-    n_blocks = 3
-    n_channels = [16, 24, 32, 48]
-    n_channels = [int(x * width_multiplier) for x in n_channels]
-    return TCResNet(inputs.shape, num_classes, n_blocks, n_channels)
-
-def TCResNet14(inputs, num_classes, width_multiplier=1.0):
-    n_blocks = 6
-    n_channels = [16, 24, 24, 32, 32, 48, 48]
-    n_channels = [int(x * width_multiplier) for x in n_channels]
-    return TCResNet(inputs.shape, num_classes, n_blocks, n_channels)
-
