@@ -793,7 +793,6 @@ ResNet32 INT6 & *ResNet32 INT3 & 67,80 & \textbf{61,38$\pm$0,41} & 60,99 & 6,42 
 
 Наступна гіпотеза пов'язувала деградацію точності із субоптимальними значеннями гіперпараметрів $T$ та $\alpha$, які перешкоджали коректній передачі знань. Для їх автоматизованого налаштування застосовано бібліотеку Optuna~\cite{akiba2019optuna}. Використання закладених у ньому алгоритмів байєсівської оптимізації дозволяє ефективніше досліджувати простір гіперпараметрів та забезпечує швидшу збіжність порівняно з класичними методами сіткового або випадкового пошуку. Простір оптимізації було сформовано з трьох параметрів: категорійної змінної архітектури моделі-вчителя (ResNet-32 INT3, INT4, INT6), а також неперервних змінних $T \in [1,5; 8,0]$ та $\alpha \in [0,1; 0,9]$. Процес пошуку тривав 30 ітерацій, потребувавши близько 100 GPU-годин обчислень на базі прискорювача NVIDIA T4. За підсумками експериментів конфігурація ResNet-32 INT4, $T=1,621$, $\alpha=0,267$ була визначена як найкраща з тих, що були протестовані Optuna. Статистичну надійність знайдених параметрів верифіковано серією з п'яти незалежних тренувальних запусків (таблиця~\ref{tab:kd-5-runs-cifar-100}). Отримані результати підтвердили висунуту гіпотезу щодо потреби адаптації гіперпараметрів дистиляції під складність набору даних. Пошук гіперпараметрів виправдала себе, навіть давши більший приріст точності порівняно з CIFAR-10, хоча й потребувала значних обчислювальних ресурсів.
 
-
 \begin{table}{|c|c|}{Результати п'яти незалежних запусків методу QADS-Freeze із дистиляцією знань від вчителя ResNet-32 INT4 до учня ResNet-32 INT2 ($T=1,621$ та $\alpha= 0,267$) на наборі даних CIFAR-100}{tab:kd-5-runs-cifar-100}{
     \hline
     \makecell{Запуск №} & \makecell{Точність (\%)} \\
@@ -811,10 +810,6 @@ ResNet32 INT6 & *ResNet32 INT3 & 67,80 & \textbf{61,38$\pm$0,41} & 60,99 & 6,42 
 
 Ефективність знайденої конфігурації може обґрунтовуватися тим, що знижене значення коефіцієнта $\alpha=0,267$ зміщує пріоритет оптимізації на істинні мітки, що дозволяє учню не переймати помилки слабкого квантованого вчителя, а використовувати його логіти лише як м'який регуляризатор. Водночас відносно низька температура $T=1,621$ запобігає надмірному розмиттю розподілу ймовірностей, що відсікає фоновий інформаційний шум від 100 класів CIFAR-100 і формує чітко сфокусовані підказки, які модель із жорсткими архітектурними обмеженнями здатна ефективно засвоїти.
 
-% Спробуємо відтворити на CIFAR-100, все ламається
-% Давайте спробуємо наконфігурувати параметри, використаємо Optuna.
-% Підбити підсумки
-
 \section{Висновки до розділу}
 
 Інтеграція дистиляції знань на основі логітів у метод QADS-Freeze виявилася ефективним механізмом відновлення точності екстремально стиснених нейронних мереж на прикладі ResNet-32 із розрідженістю 90\% та квантуванням до INT2. Експериментально показано, що нівелювання проблеми прірви потужностей можна досягати залученням моделі-вчителя проміжної розрядності, що забезпечуватиме кращу передачу ознак порівняно з повнорозрядними архітектурами.
@@ -825,7 +820,12 @@ ResNet32 INT6 & *ResNet32 INT3 & 67,80 & \textbf{61,38$\pm$0,41} & 60,99 & 6,42 
 
 % У «Висновках» потрібно викласти найважливіші результати, одержані в дипломній роботі, потрібно зазначити якісні та кількісні показники відповідних результатів.
 \conclusions
-Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi pretium tellus duis convallis tempus leo eu aenean sed diam urna tempor pulvinar vivamus fringilla lacus nec metus bibendum egestas iaculis massa nisl malesuada lacinia integer nunc posuere ut hendrerit semper vel class aptent taciti sociosqu ad litora torquent per conubia nostra inceptos himenaeos orci varius natoque penatibus et magnis dis parturient montes nascetur ridiculus mus donec rhoncus eros lobortis nulla molestie mattis scelerisque maximus eget fermentum odio phasellus non purus est efficitur laoreet mauris pharetra vestibulum fusce dictum risus blandit quis suspendisse aliquet nisi sodales consequat magna ante condimentum neque at luctus nibh finibus facilisis dapibus etiam interdum tortor ligula congue sollicitudin erat viverra ac tincidunt nam porta elementum a enim euismod quam justo lectus commodo augue arcu dignissim velit aliquam imperdiet mollis nullam volutpat porttitor ullamcorper rutrum gravida cras eleifend turpis fames primis vulputate ornare sagittis vehicula praesent dui felis venenatis ultrices proin libero feugiat tristique accumsan maecenas potenti ultricies habitant morbi senectus netus suscipit auctor curabitur facilisi cubilia curae hac habitasse platea dictumst lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi pretium tellus duis convallis tempus leo eu aenean sed diam urna tempor pulvinar vivamus fringilla lacus nec metus bibendum egestas iaculis massa nisl malesuada lacinia integer nunc posuere ut
+За підсумками дисертаційного дослідження отримано такі нові науково-теоретичні та прикладні результати:
+\begin{enumerate}
+    \item уперше реалізовано комбінований метод стиснення нейронних мереж, що базується на інтеграції підходів дистиляції знань на основі відношень, неструктурованого динамічного і статичного підрізання ваг та квантуванні під час навчання. На відміну від інших існуючих інтегрованих підходів запропонований метод використовує функцію втрат дистиляції безпосередньо під час застосування квантування та підрізання, а не як окремий незалежний етап донавчання.
+        
+    \item встановлено особливості вибору архітектурних конфігурацій вчителя та учня, які необхідні для забезпечення статистично значущого приросту точності моделі порівняно зі сценаріями застосування алгоритму квантування та підрізання ваг без дистиляції знань. Показано вплив комбінованого стиснення моделей глибинного навчання на стійкість до змагальних атак.
+\end{enumerate}
 % Висновки десь на 1-1.5 сторінки
 
 \bibliographystyle{tex/udstu2015}
