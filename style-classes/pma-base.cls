@@ -323,7 +323,7 @@
     showstringspaces=false,
     lineskip=0pt,
     aboveskip=21pt,
-    belowskip=21pt
+    belowskip=0pt
 }
 \lstset{style=thelisting}
 
