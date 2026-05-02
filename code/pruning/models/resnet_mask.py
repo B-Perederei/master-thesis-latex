@@ -594,7 +594,6 @@ class TCResNet(nn.Module):
         out = self.conv(inputs)
         out = self.layers(out)
         
-        # 분류기
         out = self.pool(out)
         out = out.view(out.shape[0], -1)
         out = self.linear(out)
@@ -653,19 +652,19 @@ class our_Residual(nn.Module):
         self.acti_quan = 0
         self.acti_n_bits = 0
         
-        if in_channels != out_channels: # 스트라이드가 2인 경우
+        if in_channels != out_channels:
             stride = 2
             self.residual = nn.Sequential(
                 conv1x9(n_bit,in_channels, out_channels, kernel_size = 1, stride = stride),
                 
                 nn.BatchNorm2d(out_channels)) 
-        else: # 스트라이드가 1인 경우
+        else:
             stride = 1
             self.residual = nn.Sequential() 
 
-        if in_channels != out_channels: # 스트라이드가 2인 경우
+        if in_channels != out_channels:
             self.conv1 = conv1x9(n_bit,in_channels, out_channels, stride = stride, padding = (0, 4))
-        else: # 스트라이드가 1인 경우
+        else:
             self.conv1 = conv1x9(n_bit,in_channels, out_channels, stride = stride, padding = (0, 4))
         self.bn1   = nn.BatchNorm2d(out_channels)
         self.conv2 = conv1x9(n_bit,out_channels, out_channels , stride = 1, padding = (0, 4))
@@ -707,7 +706,7 @@ class our_TCResNet(nn.Module):
             layers.append(our_Residual(self.n_bits,in_channels, out_channels))
         self.layers = nn.Sequential(*layers)
 
-        # Average Pooling -> FC -> Softmax로 이어지는 분류기
+        # Average Pooling -> FC -> Softmax
         self.pool   = nn.AdaptiveAvgPool2d(1)
         self.linear = mnn.MaskLinear(n_bit ,n_channels[-1], n_class)
         # self.linear = nn.Linear(n_channels[-1], n_class)
@@ -748,7 +747,6 @@ class our_TCResNet(nn.Module):
         out = self.conv(inputs)
         out = self.layers(out)
         
-        # 분류기
         out = self.pool(out)
         out = out.view(out.shape[0], -1)
         out = self.linear(out)
