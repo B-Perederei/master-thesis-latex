@@ -77,7 +77,7 @@
             \noindent
             \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}l@{}}
                 «На правах рукопису» & \inquot{До захисту допущено} \\
-                УДК 004.85           & Завідувач кафедри \\
+                УДК 004.85:519.6           & Завідувач кафедри \\
                                     & \signplace{} \cmdpma@Title@headOfDepartment \\
                                     & \inquot{\_\_\_} \signplace{} \cmdpma@Title@year~р.
             \end{tabular*}
@@ -87,7 +87,7 @@
 
             \textbf{на здобуття ступеня магістра}
 
-            \textbf{за освітньо-професійною програмою \inquot{\cmdpma@Title@program}}
+            \textbf{за освітньо-науковою програмою \inquot{\cmdpma@Title@program}}
 
             \textbf{спеціальності \cmdpma@Title@specialty}
 
@@ -151,7 +151,7 @@
 
         \textbf{\inquot{Київський політехнічний інститут імені Ігоря Сікорського}}
 
-        \textbf{Факультет прикладної математики}
+        \textbf{Факультет програмних систем та прикладної математики}
 
         \textbf{Кафедра прикладної математики}
 
@@ -160,7 +160,7 @@
 
             Спеціальність --- \cmdpma@Title@specialty{}
 
-            Освітньо-професійна програма~\inquot{\cmdpma@Title@program}
+            Освітньо-наукова програма~\inquot{\cmdpma@Title@program}
 
         \endgroup
 
@@ -198,10 +198,10 @@
 }{%
     \end{list}
     \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}l@{}}
-        \Student@nom & \signplace{}\hspace{1.25cm}\assignment@sign@stud\\
-        Науковий керівник дисертації & \signplace{}\hspace{1.25cm}\assignment@sign@cur
+        \Student@nom & \signplace{}\hspace{2.25cm}\assignment@sign@stud\\
+        Науковий керівник дисертації & \signplace{}\hspace{2.25cm}\assignment@sign@cur
     \end{tabular*}
-    \setlength{\parindent}{1.25cm}
+    \setlength{\parindent}{2.25cm}
     \clearpage
 }
 
@@ -226,7 +226,7 @@
             \endfoot%
 }{\end{longtable}\endgroup}
 
-\newenvironment{calenderplan}[1][|C{0.7cm}|L{8.3cm}|C{5cm}|c|]{%
+\newenvironment{calenderplan}[1][|C{1.25cm}|L{8cm}|C{5cm}|c|]{%
     \begingroup\centering
         Календарний план
         \begin{longtable}{#1}

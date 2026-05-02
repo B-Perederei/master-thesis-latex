@@ -204,7 +204,7 @@
 \DeclareCaptionLabelSeparator{emdash}{ -- }
 \captionsetup[table]{% таблиці
     font={stretch=1.5},
-    margin=1.25cm,
+    margin=0cm,
     labelsep=emdash,
     aboveskip=3pt,
     belowskip=18pt,
@@ -323,7 +323,7 @@
     showstringspaces=false,
     lineskip=0pt,
     aboveskip=21pt,
-    belowskip=21pt
+    belowskip=0pt
 }
 \lstset{style=thelisting}
 
@@ -462,7 +462,7 @@
 
         \textbf{\inquot{\MakeUppercase{Київський політехнічний інститут\\імені Ігоря Сікорського}}}
 
-        \textbf{Факультет прикладної математики}
+        \textbf{Факультет програмних систем та прикладної математики}
 
         \textbf{Кафедра прикладної математики}
 
