@@ -102,7 +102,7 @@
                 \vfill
                 Керівник:
 
-                \cmdpma@Title@supervisorTitles,
+                \cmdpma@Title@supervisorTitles
 
                 \cmdpma@Title@supervisor\hfill\signplace\hspace{2cm}
 
@@ -118,7 +118,7 @@
                 \vfill
                 Консультант з нормоконтролю:
 
-                \cmdpma@Title@normConsultantTitles,
+                \cmdpma@Title@normConsultantTitles
 
                 \cmdpma@Title@normConsultant\hfill\signplace\hspace{2cm}
 
