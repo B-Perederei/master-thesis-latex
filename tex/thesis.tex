@@ -796,9 +796,11 @@ ResNet32 INT6 & *ResNet32 INT3 & 67,80 & \textbf{61,38$\pm$0,41} & 60,99 & 6,42 
     \makecell{Модель} & \makecell{Кількість \\ параметрів} & \makecell{Кількість ненульових \\ параметрів} & \makecell{Розмір параметрів \\ (кілобайти)} & \makecell{Розмір ненульових \\ параметрів (кілобайти)} \\
     \hline
 }
-ResNet-32 FP32 & 460~000 & 458~768 & 1796,88 & 1792,06 \\ \hline
-ResNet-32 INT4 & 460~000 & 45863  & 224,61  & 22,39   \\ \hline
-ResNet-32 INT2 & 460~000 & 45863  & 112,30  & 11,20   \\ \hline
+ResNet-32 FP32 & 465~072 & 463~840 & 1816,69 & 1811,88 \\ \hline
+ResNet-32 INT6 & 465~072 & 50~935  & 340,63  & 37,31   \\ \hline
+ResNet-32 INT4 & 465~072 & 50~935  & 227,09  & 24,87   \\ \hline
+ResNet-32 INT3 & 465~072 & 50~935  & 170,31  & 18,65   \\ \hline
+ResNet-32 INT2 & 465~072 & 50~935  & 113,54  & 12,44   \\ \hline
 \end{table}
 }
 
@@ -851,10 +853,10 @@ ResNet-32 INT2 & 460~000 & 45863  & 112,30  & 11,20   \\ \hline
 % передостаннім додатком повинен бути додаток «Ілюстративний матеріал», до якого потрібно винести слайди презентації, із якою студент виступатиме під час захисту дипломної роботи
 
 % Обов'язково перевірити чи вказаний правильний номер кінцевого слайду
-\foreach \slide in {1,...,3} {
+\foreach \slide in {1,...,19} {
     \begin{figure}[H]
         \centering
-        \includegraphics[page=\slide, width=0.75\textwidth]{presentation/presentation.pdf}
+        \includegraphics[page=\slide, width=0.85\textwidth]{presentation/thesis_presentation.pdf}
         \caption{Слайд презентації №\slide}
     \end{figure}
 }
