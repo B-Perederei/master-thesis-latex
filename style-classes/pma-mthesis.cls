@@ -125,7 +125,7 @@
                 \vfill
                 Рецензент:
 
-                \cmdpma@Title@reviewerTitles,
+                \cmdpma@Title@reviewerTitles
 
                 \cmdpma@Title@reviewer\hfill\signplace\hspace{2cm}
 
