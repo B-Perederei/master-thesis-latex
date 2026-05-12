@@ -404,8 +404,8 @@
 
 %% Перелік посилань
 % Змінюємо заголовок та додаємо до змісту
-\pretocmd{\bibliography}{\renewcommand{\bibname}{Перелік посилань}}{}{}
-\apptocmd{\bibliography}{\addcontentsline{toc}{chapter}{Перелік посилань}}{}{}
+\pretocmd{\bibliography}{\renewcommand{\bibname}{Список використаної літератури}}{}{}
+\apptocmd{\bibliography}{\addcontentsline{toc}{chapter}{Список використаної літератури}}{}{}
 
 % Змінюємо формат номеру для переліку посилань (число + крапка)
 \renewcommand{\@biblabel}[1]{#1.}
